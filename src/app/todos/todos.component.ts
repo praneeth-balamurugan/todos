@@ -11,6 +11,7 @@ import { NgForm } from '@angular/forms';
 export class TodosComponent implements OnInit{
  
 todos?: Todo[]
+showValidationError!: boolean;
 
 constructor(private DataService: DataService){}
 
@@ -18,10 +19,10 @@ constructor(private DataService: DataService){}
   ngOnInit(): void {
     this.todos = this.DataService.getAllTodos()
   }
-
+  
   onFormSubmit(form: NgForm){
-    if (form.invalid) return alert("vjj")
-    console.log(form);
+    if (form.invalid) return this.showValidationError=true
     this.DataService.addTodo(new Todo(form.value.text))
+    return null
   }
 }
