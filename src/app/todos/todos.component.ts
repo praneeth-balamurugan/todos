@@ -23,6 +23,9 @@ constructor(private DataService: DataService){}
   onFormSubmit(form: NgForm){
     if (form.invalid) return this.showValidationError=true
     this.DataService.addTodo(new Todo(form.value.text))
-    return null
+    form.reset()
+    return 
+   
   }
+  
 }

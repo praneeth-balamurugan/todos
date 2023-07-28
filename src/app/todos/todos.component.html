@@ -20,9 +20,11 @@
                 </p>
             </div>
             <div *ngIf="todoTextField.invalid && showValidationError">
-            <p class="help is-danger" *ngIf="todoTextField.errors && todoTextField.errors['required']">Todo is empty</p>
-            <p class="help is-danger" *ngIf="todoTextField.errors && todoTextField.errors['minlength']">Only 2 character is present</p>
-        </div>
+                <p class="help is-danger" *ngIf="todoTextField.errors && todoTextField.errors['required']">Todo is empty
+                </p>
+                <p class="help is-danger" *ngIf="todoTextField.errors && todoTextField.errors['minlength']">Only 2
+                    character is present</p>
+            </div>
 
         </form>
     </div>
