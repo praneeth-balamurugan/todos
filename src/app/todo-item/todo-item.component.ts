@@ -14,6 +14,7 @@ export class TodoItemComponent implements OnInit{
  todoClicked : EventEmitter<void> = new EventEmitter()
  @Output()
  editClicked : EventEmitter<void> = new EventEmitter()
+
   constructor() { }
 
 ngOnInit(): void {
@@ -25,6 +26,5 @@ onTodoClicked(){
 
 onEditClicked(){
   this.editClicked.emit()
-
 }
 }
