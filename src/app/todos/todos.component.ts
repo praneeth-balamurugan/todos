@@ -12,9 +12,7 @@ export class TodosComponent implements OnInit{
  
 todos?: Todo[]
 showValidationError!: boolean;
-
 constructor(private DataService: DataService){}
-
 
   ngOnInit(): void {
     this.todos = this.DataService.getAllTodos()
@@ -23,9 +21,17 @@ constructor(private DataService: DataService){}
   onFormSubmit(form: NgForm){
     if (form.invalid) return this.showValidationError=true
     this.DataService.addTodo(new Todo(form.value.text))
+    this.showValidationError = false
+        
     form.reset()
     return 
    
   }
-  
+  toggleCompleted(todo: Todo){
+    todo.completed = !todo.completed
+
+  }
+  editTodo(todo: Todo){
+    //this.DataService.updateTodo()
+  }
 }
