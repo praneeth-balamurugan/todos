@@ -1,6 +1,6 @@
 import { EditTodoDialogComponent } from './../edit-todo-dialog/edit-todo-dialog.component';
 import { DataService } from './../shared/data.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, numberAttribute } from '@angular/core';
 import { Todo } from '../shared/todo.model';
 import { NgForm } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
@@ -50,4 +50,12 @@ constructor(private DataService: DataService, private dialog : MatDialog){}
       }
     })
   }
+
+  deleteTodo(todo: Todo){
+    const index: number = this.todos!.indexOf(todo)
+    this.DataService.deleteTodo(index)
+    
+  }
+
+   
 }
