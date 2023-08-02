@@ -20,6 +20,7 @@ export class TodoItemComponent implements OnInit,AfterViewInit {
 
 
  @ViewChild('editBtn') editBtnElRef: ElementRef<HTMLElement> | undefined
+ @ViewChild('deleteBtn') deleteBtnElRef: ElementRef<HTMLElement> | undefined
   constructor() { }
 
 ngOnInit(): void {
@@ -27,10 +28,15 @@ ngOnInit(): void {
 
 ngAfterViewInit(): void {
   tippy (this.editBtnElRef!.nativeElement,{
-    content: 'Edit '
-  }
-    )
+    content: 'Edit Todo'
+  })
+  tippy (this.deleteBtnElRef!.nativeElement,{
+    content:'Delete Todo'
+  })
 }
+
+
+
 onTodoClicked(){
   this.todoClicked.emit()
 }
