@@ -1,6 +1,6 @@
 import { outputAst } from '@angular/compiler';
 import { Todo } from './../shared/todo.model';
-import { AfterViewInit, Component, ElementRef, examEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import tippy from 'tippy.js';
 
 @Component({   
@@ -12,11 +12,11 @@ export class TodoItemComponent implements OnInit,AfterViewInit {
   @Input()
   todo!: Todo;
  @Output()
- todoClicked : examEmitter<void> = new examEmitter()
+ todoClicked : EventEmitter<void> = new EventEmitter()
  @Output()
- editClicked : examEmitter<void> = new examEmitter()
+ editClicked : EventEmitter<void> = new EventEmitter()
  @Output()
- deleteClicked : examEmitter<void> = new examEmitter()
+ deleteClicked : EventEmitter<void> = new EventEmitter()
 
 
  @ViewChild('editBtn') editBtnElRef: ElementRef<HTMLElement> | undefined
